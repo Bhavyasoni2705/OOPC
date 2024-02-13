@@ -4,18 +4,27 @@
 
 using namespace std;
 
-int calculateGradePoint(const string& grade) {
-    if (grade == "AA") return 10;
-    else if (grade == "AB") return 9;
-    else if (grade == "BB") return 8;
-    else if (grade == "BC") return 7;
-    else if (grade == "CC") return 6;
-    else if (grade == "CD") return 5;
-    else if (grade == "DD") return 4;
+int calculateGradePoint(const string& grade)
+{
+    if (grade == "AA")
+    return 10;
+    else if (grade == "AB")
+    return 9;
+    else if (grade == "BB")
+    return 8;
+    else if (grade == "BC")
+    return 7;
+    else if (grade == "CC")
+    return 6;
+    else if (grade == "CD")
+    return 5;
+    else if (grade == "DD")
+    return 4;
     else return 0;
 }
 
-string calculateGrade(float marks) {
+string calculateGrade(float marks)
+{
     if (marks >= 80) return "AA";
     else if (marks >= 73) return "AB";
     else if (marks >= 66) return "BB";
@@ -26,7 +35,8 @@ string calculateGrade(float marks) {
     else return "FF";
 }
 
-void inputMarks(const string& subjectName, float& theoryMarks, float& practicalMarks, int& theoryCredit, int& practicalCredit) {
+void inputMarks(const string& subjectName, float& theoryMarks, float& practicalMarks, int& theoryCredit, int& practicalCredit)
+{
     cout << "Enter marks for " << subjectName << " (Theory): ";
     cin >> theoryMarks;
     cout << "Enter marks for " << subjectName << " (Practical): ";
@@ -53,7 +63,8 @@ void displayMarksheet(const string& studentId, const string& studentName, int se
     }
 }
 
-float calculateCGPA(int theoryCredit[], int practicalCredit[], int theoryGradePoint[], int practicalGradePoint[]) {
+float calculateCGPA(int theoryCredit[], int practicalCredit[], int theoryGradePoint[], int practicalGradePoint[])
+{
     int totalCredit = 0;
     float totalGradePoint = 0;
 
@@ -65,7 +76,8 @@ float calculateCGPA(int theoryCredit[], int practicalCredit[], int theoryGradePo
     return totalGradePoint / totalCredit;
 }
 
-int main() {
+int main()
+{
     string studentId, studentName;
     int semester;
     string subjects[3];
@@ -85,7 +97,8 @@ int main() {
         cin >> subjects[i];
     }
 
-    for (int i = 0; i < 3; ++i) {
+    for (int i = 0; i < 3; ++i)
+        {
         inputMarks(subjects[i], theoryMarks[i], practicalMarks[i], theoryCredit[i], practicalCredit[i]);
         theoryGradePoint[i] = calculateGradePoint(calculateGrade(theoryMarks[i]));
         practicalGradePoint[i] = calculateGradePoint(calculateGrade(practicalMarks[i]));
