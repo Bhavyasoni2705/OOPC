@@ -3,7 +3,8 @@
 
 using namespace std;
 
-struct Employee {
+struct Employee
+{
     int employeeNumber;
     int employeeID;
     string employeeName;
@@ -12,15 +13,17 @@ struct Employee {
     long long contactNumber;
 };
 
-int main() {
+int main()
+{
     const int maxEmployees = 1000;
     Employee employees[maxEmployees];
 
     int numEmployees = 0;
 
-    char addAnother;
+    char addAnotherEmployee = 'y';
 
-    do {
+    while (addAnotherEmployee == 'y')
+        {
         cout << "\nEnter details for Employee #" << numEmployees + 1 << ":" << endl;
 
         cout << "Employee Number: ";
@@ -30,8 +33,7 @@ int main() {
         cin >> employees[numEmployees].employeeID;
 
         cout << "Employee Name: ";
-         cin >> employees[numEmployees].employeeName;
-
+        cin >> employees[numEmployees].employeeName;
 
         cout << "Qualification: ";
         cin >> employees[numEmployees].qualification;
@@ -44,13 +46,13 @@ int main() {
 
         numEmployees++;
 
-        cout << "Do you want to add another employee? (y/n): ";
-        cin >> addAnother;
-
-    } while (addAnother == 'y' && numEmployees < maxEmployees);
+        cout << "\nDo you want to enter details for another employee? (y/n): ";
+        cin >> addAnotherEmployee;
+    }
 
     cout << "\nEmployee details entered:\n";
-    for (int i = 0; i < numEmployees; ++i) {
+    for (int i = 0; i < numEmployees; ++i)
+        {
         cout << "\nEmployee #" << i + 1 << ":\n";
         cout << "Employee Number: " << employees[i].employeeNumber << endl;
         cout << "Employee ID: " << employees[i].employeeID << endl;
